@@ -2,7 +2,7 @@ README
 ======
 
 This project is to document the different ways a Python projects directory 
-structure can be setup to also suport testing. The code used here is not is not 
+structure can be setup to also suport testing. The code used here is not
 important. It's very trivial and its there to just prove a point. I am tryng 
 to figure out the best way to do it for all my projects going forward. I am
 only using the unittest framework. For execution I am executing the test
