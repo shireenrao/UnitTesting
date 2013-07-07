@@ -12,7 +12,15 @@ testing framework. Just execute the command 'nosetests'.
 
 The unit tests are located in the same package as the module being tested. This
 is the easiest to implement and run. I don't have to do anything special to run
-the tests. Simply run the test as
+the tests. The directory structure is like this
+
+    Projects/
+        MyApp/
+            myapp.py
+            test_myapp.py
+
+
+Simply run the test from within the MyApp folder as
 
     % python test_myapp.py
     or
