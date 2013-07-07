@@ -34,4 +34,13 @@ It will also work if you used the nose test runner from inside the package.
 
 ##Type 3
 
-This is where the tests folder is on the same level as the package folder.
+This is where the tests folder is on the same level as the package folder. You
+can not run the test scripts from within the tests folder as again it will not
+be able to resolve the myapp package. You can run it from within the package by
+referencing the tests folder as 
+
+    % python ../tests/test_myapp.py
+
+As you are running the test from the package, the myapp module is automatically
+in your PYTHONPATH. The other way of doing this would be by putting your
+package in your PYTHONPATH. Then you can run the tests from its own location.
