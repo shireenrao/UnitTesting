@@ -1,12 +1,12 @@
 README
 ======
 
-This project is to document the different ways a directory structure can be
-setup to do testing. The code used for testing is not important. I am tryng 
+This project is to document the different ways a Python projects directory 
+structure can be setup to also suport testing. The code used here is not is not 
+important. It's very trivial and its there to just prove a point. I am tryng 
 to figure out the best way to do it for all my projects going forward. I am
 only using the unittest framework. For execution I am executing the test
-cases directly using python.  You can also run all the tests using the nose 
-testing framework. Just execute the command 'nosetests'.
+cases by either directly using python or by using the nose test runner. 
 
 ##Type 1
 
@@ -24,12 +24,14 @@ the tests. The directory structure is like this
 Simply run the test from within the MyApp folder as
 
     % python test_myapp.py
-    or
+
+or use the nose test runner
+
     % nosetests
 
 ##Type 2
 
-The unit tests are located in its own tests folder in the package you want to
+Here the unit tests are located in its own tests folder in the package you want to
 test. Running the unit tests from inside the tests folder won't work as it 
 worked in Type 1. That's because the myapp module can not be resolved. Here is
 how the directory structure looks like 
