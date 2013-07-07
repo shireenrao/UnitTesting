@@ -22,11 +22,14 @@ the tests. Simply run the test as
 
 The unit tests are located in its own tests folder in the package you want to
 test. Running the unit tests from inside the tests folder won't work as it 
-worked in Type 1. It will work if you ran it from inside the package folder 
-and giving the complete path to the test file as
+worked in Type 1. That's because the myapp module is not found.  It will work 
+if you ran it from inside the package folder and gave the complete path to 
+the test file as
 
     % python tests/test_myapp.py
-    or run the nosetests command
+
+It will also work if you used the nose test runner from inside the package.
+ 
     % nosetests
 
 ##Type 3
