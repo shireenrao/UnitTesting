@@ -29,6 +29,10 @@ or use the nose test runner
 
     % nosetests
 
+Test discovery works too
+
+    % python -m unittest discover
+
 ##Type 2
 
 Here the unit tests are located in its own tests folder in the package you want to
@@ -52,6 +56,10 @@ It will work if you ran it from inside the package folder and gave the complete
 It will also work if you used the nose test runner from inside MyApp.
  
     % nosetests
+
+Test discovery works here too
+
+    % python -m unittest discover
 
 It will also work from inside the tests folder if you added MyApp to your
 PYTHONPATH, but that is an option I dont like.
@@ -80,4 +88,4 @@ folder as
 As you are running the test from the package, the myapp module is automatically
 in your PYTHONPATH. The other way of doing this would be by putting your
 package in your PYTHONPATH, which I don't like to do. Then you can run the 
-tests from its own location.
+tests from its own location. Test discovery does not work as far as I know.
