@@ -1,7 +1,7 @@
 # Both types of tests work. Just pick one
 .PHONY: tests
 tests:
-	PYTHONPATH=MyApp python -m unittest tests
+	PYTHONPATH=MyApp python -m unittest discover
 	PYTHONPATH=MyApp nosetests
 
 #clean:
