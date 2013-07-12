@@ -17,6 +17,9 @@ class MyAppTests(unittest.TestCase):
     def test_diff1(self):
         self.assertEqual(myapp.difference(self.a_val, self.b_val), 5)
 
+def suite():
+        return unittest.TestLoader().loadTestsFromTestCase(MyAppTests)
+
 if __name__ == '__main__':
     unittest.main()
 

@@ -35,8 +35,8 @@ Test discovery works too
 
 ##Type 2
 
-Here the unit tests are located in its own tests folder in the package you want to
-test. Running the unit tests from inside the tests folder won't work as it 
+Here the unit tests are located in its own tests folder in the package you want
+to test. Running the unit tests from inside the tests folder won't work as it
 worked in Type 1. That's because the myapp module can not be resolved. Here is
 how the directory structure looks like 
 
@@ -45,6 +45,7 @@ how the directory structure looks like
             __init__.py
             myapp.py
             tests/
+                __main__.py
                 __init__.py
                 test_myapp.py
 
@@ -52,6 +53,14 @@ It will work if you ran it from inside the package folder and gave the complete
  path to the test file as
 
     % python tests/test_myapp.py
+
+This will also work
+
+    % python -m tests.test_myapp
+
+As we have a __main__.py in the tests folder this will work too
+
+    % python -m tests
 
 It will also work if you used the nose test runner from inside MyApp.
  
@@ -61,8 +70,29 @@ Test discovery works here too
 
     % python -m unittest discover
 
-It will also work from inside the tests folder if you added MyApp to your
-PYTHONPATH, but that is an option I dont like.
+It will also work from inside the tests folder or outside the MyApp folder. If
+you added MyApp to your PYTHONPATH, but that is an option I dont like. So,
+instead of changing the PYTHONPATH, the best way is to write either a makefile
+or a script to add your module just for the run. So if you are running from
+outside the MyApp folder the command will be 
+
+    % PYTHONPATH=MyApp python -m unittest discover
+
+or
+
+    % PYTHONPATH=MyApp python -m MyApp.tests
+
+or
+ 
+    % PYTHONPATH=MyApp python -m MyApp.tests.test_myapp
+
+or
+
+    % PYTHONPATH=MyApp nosetests
+
+If running from inside tests folder you would run 
+
+    % PYTHONPATH=../ python test_myapp.py
 
 ##Type 3
 
@@ -76,6 +106,7 @@ like
             __init__.py
             myapp.py
         tests/
+            __main__.py
             __init__.py
             test_myapp.py
 
@@ -89,3 +120,22 @@ As you are running the test from the package, the myapp module is automatically
 in your PYTHONPATH. The other way of doing this would be by putting your
 package in your PYTHONPATH, which I don't like to do. Then you can run the 
 tests from its own location. Test discovery does not work as far as I know.
+
+Like in Type2 you can use a makefile or a script to temporarily change the
+PYTHONPATH and execute the test cases.
+
+These work from outside the MyApp folder
+
+    % PYTHONPATH=MyApp python -m tests
+
+or
+
+    % PYTHONPATH=MyApp python -m tests.test_myapp
+
+or
+
+    % PYTHONPATH=MyApp python -m unittest discover
+
+or
+
+    % PYTHONPATH=MyApp nosetests
